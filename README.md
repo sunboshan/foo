@@ -61,6 +61,7 @@ $ make release
 
 好了，至此一切就绪。运行一下试试
 ```
+$ make deploy
 $ bin/start
 $ bin/to_erl log/pipes/
 Attaching to log/pipes/erlang.pipe.1 (^D to exit)
