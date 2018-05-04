@@ -10,7 +10,7 @@ compile:
 release: compile
 	erl -pa ebin -noshell \
 		-eval 'systools:make_script("rel/${VSN}/${APP}")' \
-		-eval 'systools:make_tar("rel/${VSN}/${APP}",[{erts,"/usr/local/Cellar/erlang/20.3.2/lib/erlang"}])' \
+		-eval 'systools:make_tar("rel/${VSN}/${APP}",[{erts,code:root_dir()}])' \
 		-s init stop
 
 deploy: release

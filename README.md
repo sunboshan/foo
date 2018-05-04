@@ -40,7 +40,7 @@ hello
 - 调用`systools:make_script("rel/0.1.0/foo")`生成`foo.boot`和`foo.script`
   - `foo.script`是一个程序员可读的脚本，描述了当启动Erlang节点时要做的事情(载入kernel,载入modules,启动各个application等)
   - `foo.boot`是对应的二进制版本，虚拟机只需要这个文件就能启动了。其实我们平日打`erl`进入shell的时候，虚拟器默认加载`start.boot`，只加载kernel和stdlib，这个文件可以在Erlang安装地找到，我的在`/usr/local/Cellar/erlang/20.3.2/lib/erlang/bin/start.boot`
-- 调用`systools:make_tar("rel/0.1.0/foo",[{erts,"/usr/local/Cellar/erlang/20.3.2/lib/erlang"}])`生成tarball。后面选项中加上erts会在tarball中包括Erlang虚拟机
+- 调用`systools:make_tar("rel/0.1.0/foo",[{erts,code:root_dir()}])`生成tarball。后面选项中加上erts会在tarball中包括Erlang虚拟机,`code:root_dir()`返回Erlang安装路径。
 
 运行一下
 ```
