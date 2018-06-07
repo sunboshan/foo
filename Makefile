@@ -20,6 +20,6 @@ deploy: release
 	cp ${REL}/erts-${ERTS}/bin/to_erl ${REL}/bin/
 	cp ${REL}/erts-${ERTS}/bin/start.src ${REL}/bin/start
 	cp ${REL}/erts-${ERTS}/bin/start_erl.src ${REL}/bin/start_erl
-	sed -ie 's#/tmp/#$$ROOTDIR/log/pipes/#' ${REL}/bin/start # replace /tmp/ to $ROOTDIR/log/pipes/
-	sed -ie 's#%FINAL_ROOTDIR%#${REL}#' ${REL}/bin/start     # replace %FINAL_ROOTDIR% to /tmp/prod
+	sed -i '' -e 's#/tmp/#$$ROOTDIR/log/pipes/#' ${REL}/bin/start # replace /tmp/ to $ROOTDIR/log/pipes/
+	sed -i '' -e 's#%FINAL_ROOTDIR%#${REL}#' ${REL}/bin/start     # replace %FINAL_ROOTDIR% to /tmp/prod
 	echo "${ERTS} ${VSN}" > ${REL}/releases/start_erl.data
